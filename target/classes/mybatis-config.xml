@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+			
+			<typeAlias type="com.cn.ofo.bean.Bike" alias="bike"/>
+			<typeAlias type="com.cn.ofo.bean.Province" alias="province"/>
+			<typeAlias type="com.cn.ofo.bean.User" alias="user"/>
+			<typeAlias type="com.cn.ofo.bean.City" alias="city"/>
+	</typeAliases>
+	<mappers>
+		<mapper class="com.cn.ofo.dao.UserDao" />
+		<mapper class="com.cn.ofo.dao.ProvinceDao" />
+		<mapper class="com.cn.ofo.dao.CityDao" />
+		<mapper class="com.cn.ofo.dao.BikeDao" />
+	</mappers>
+</configuration>

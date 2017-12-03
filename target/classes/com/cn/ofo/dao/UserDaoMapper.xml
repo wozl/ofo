@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.ofo.dao.UserDao" >
+	
+	<sql id="list">
+		id,username,password,isadmin
+	</sql>
+	<select id="selectAll"  resultType="user">
+			select <include refid="list"/>
+			from users;
+	</select>
+	
+	<select id="selectByName" parameterType="string" resultType="user">
+		select <include refid="list"/>
+		from users where username=#{username,jdbcType=VARCHAR};
+	</select>
+	
+	<select id="selectById" parameterType="int" resultType="user">
+		select <include refid="list"/>
+		from users where id=#{id,jdbcType=INTEGER};
+	</select>
+	
+	<insert id="adduser" parameterType="com.cn.ofo.bean.User">
+		insert into users values(null,#{username},#{password},0);
+	</insert>
+	
+	<update id="updateuser" parameterType="com.cn.ofo.bean.User">
+		update users set username=#{username},password=#{password},
+			isadmin=0 where id=#{id};
+	</update>
+	
+	<delete id="deleteuser" parameterType="java.lang.Integer">
+		delete from users where id=#{id};
+	</delete>
+</mapper>
